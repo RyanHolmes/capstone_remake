@@ -1,0 +1,86 @@
+/*============ GENERAL CREAT USER STUFF  ==============*/
+.create-user-container {
+  margin-left: 200px;
+  width: 80%;
+  height: 100%;
+}
+
+.create-user-background {
+  margin-top: -20px;
+  height: 700px;
+  width: auto;
+  background: #d9d9d9;
+}
+
+/* =========== ADDING FEATURE CARDS ============*/
+.add-user-card {
+  height: 255px;
+  width: 175px;
+}
+
+.add-user-card :hover{
+  cursor: pointer;
+}
+
+.add-event-card {
+  margin-top: 15px;
+  height: 255px;
+  width: 255px;
+}
+
+.add-event-card :hover{
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.add-text {
+  font-weight: 500;
+  color: #b9b9b9;
+  text-align: center;
+  font-size: 16pt;
+  margin-top: 100px;
+}
+
+.plus {
+  font-size: 24pt;
+}
+
+/*========== EVENT CARD  ==============*/
+.event-card {
+  height: 255px;
+  width: 255px;
+}
+
+.event-title {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 18pt;
+}
+
+.event-description {
+  word-wrap: break-word;
+  margin: 5px;
+  width: 245px;
+  height: 100px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-category {
+
+}
+
+.event-location {
+
+}
+
+.button-group {
+  margin: 10px;
+}
+
+/*============ USER CARD  ==============*/
+.user-card {
+  height: 255px;
+  width: 175px;
+}
