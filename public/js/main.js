@@ -1,7 +1,6 @@
 $(document).ready(function(){
   var users;
   init();
-  // Events handlers
   $('#startDemoBtn').click(function(){
     // $('html, body').animate({
     //    scrollTop: $('#addUserBtn').offset().top
@@ -20,12 +19,14 @@ function init(){
 
 };
 
+//called to render the form
 function addUserButton(){
-  users = [];
+  if(typeof(users) === "undefined"){ users = []; }
+
   $('#addUserBtn').remove();
   var userForm = `
   <div class="hidden card add-user-card col-md-2 col-md-offset-2" id="fillUserCard">
-    <img src="../images/user_icon_1.png" alt="User 1" class="circle-image">
+    <img src="../images/user_icon_${users.length + 1}.png" alt="User 1" class="circle-image">
     <form action="">
       <input type="text" placeholder="User 1" id="userNameField">
       <input type="text" placeholder="Location" id="userLocationField">
@@ -39,6 +40,7 @@ function addUserButton(){
   $('#createUserBtn').on("click", createUserButton);
 };
 
+//called to create a user
 function createUserButton(){
   var userName = $('#userNameField').val();
   var userLocation = $('#userLocationField').val();
@@ -51,10 +53,25 @@ function createUserButton(){
   </div>
   `;
 
+  var addEventCard = `
+  <div class="hidden card add-event-card col-md-3" id="addEventBtn${users.length}">
+    <div class="add-text">
+      <span class="plus"> + </span> Add Event
+    </div>
+  </div>
+  `
+
   $('#fillUserCard').remove();
-  $(`#userRow${users.length}`).html(newUser);
+  $(`#userRow${users.length}`).append(newUser);
+  $(`#userRow${users.length}`).append(addEventCard);
+
   $(`#newUser${users.length}`).removeClass('hidden');
+  $(`#addEventBtn${users.length}`).removeClass('hidden');
+
   $(`#newUser${users.length}`).addClass('animated fadeInDown');
+  $(`#addEventBtn${users.length}`).addClass('animated fadeInDown');
+
+  $(`#addEventBtn${users.length}`).on("click", addEventButton);
 
   // //store user that was created
   users.push({name: userName, location: userLocation});
@@ -72,8 +89,13 @@ function createUserButton(){
     </div>
   </div>
   `
+
   $(`#userRow${users.length}`).append(addUserCard);
   $('#addUserBtn').removeClass('hidden');
   $('#addUserBtn').addClass('animated fadeInDown');
   $('#addUserBtn').on("click", addUserButton);
+};
+
+function addEventButton(){
+  alert("hi");
 };

@@ -22,13 +22,10 @@
 }
 
 .add-event-card {
-  margin-top: 15px;
   height: 255px;
-  width: 255px;
 }
 
 .add-event-card :hover{
-  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -47,7 +44,6 @@
 /*========== EVENT CARD  ==============*/
 .event-card {
   height: 255px;
-  width: 255px;
 }
 
 .event-title {
