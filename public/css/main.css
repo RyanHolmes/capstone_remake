@@ -35,13 +35,13 @@ body {
   box-shadow: 2px 2px 2px #888888;
   border-radius: 5px;
   margin: 5px;
-  display: inline-block;
 }
 
 .circle-image {
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 50%;
-  height: 150px;
+  height: 120px;
   width: auto;
 }
 
@@ -53,19 +53,20 @@ body {
 
 .button-pink,
 .button-pink:focus {
-  padding: 5px 5px 5px 5px;
-  margin-left: 400px;
+  margin: 0 auto;
   margin-top: 20px;
+  /*margin-left: -50px;*/
+  display: block;
+  padding: 5px 5px 5px 5px;
   text-align: center;
   font-weight: 500;
   font-size: 12pt;
   width: 120px;
-  height: 25px;
+  height: 30px;
   background: #FF5984;
   color: white;
   border-radius: 7px;
   font-family: FaktSoftPro;
-  box-shadow: none; /* Not working grrr */
 }
 
 .button-pink:hover {

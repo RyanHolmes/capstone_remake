@@ -15,7 +15,6 @@
 /* =========== ADDING FEATURE CARDS ============*/
 .add-user-card {
   height: 255px;
-  width: 175px;
 }
 
 .add-user-card :hover{
@@ -82,5 +81,4 @@
 /*============ USER CARD  ==============*/
 .user-card {
   height: 255px;
-  width: 175px;
 }

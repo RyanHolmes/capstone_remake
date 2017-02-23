@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/lib/animate.css">
+    <link rel="stylesheet" href="../css/lib/bootstrap.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/landing.css">
     <link rel="stylesheet" href="../css/create-user.css">
@@ -26,13 +26,51 @@
         <h1 class="page-title white"> BlueShift </h1>
         <div class="landing-container">
           <h3 class="landing-description white">This site is a demo to showcase the recommendation engine we have created for Universe.com. It uses natural language processing to classify events and machine learning to do hybrid filtering. </h3>
-          <div class="card user-card">
-            <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
-            <hr class="horizontal-line"/>
-            <div> Ryan Holmes</div>
+          <!-- Team pictures -->
+          <div class="row">
+            <!-- RYAN -->
+            <div class="card user-card col-md-2 col-md-offset-2">
+              <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
+              <hr class="horizontal-line"/>
+              <div> Ryan Holmes</div>
+            </div>
+
+            <!-- RYAN -->
+            <div class="card user-card col-md-2 col-md-offset-2">
+              <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
+              <hr class="horizontal-line"/>
+              <div> Ryan Holmes</div>
+            </div>
+
+            <!-- RYAN -->
+            <div class="card user-card col-md-2 col-md-offset-2">
+              <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
+              <hr class="horizontal-line"/>
+              <div> Ryan Holmes</div>
+            </div>
+
+            <!-- RYAN -->
+            <div class="card user-card col-md-2 col-md-offset-2">
+              <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
+              <hr class="horizontal-line"/>
+              <div> Ryan Holmes</div>
+            </div>
+
+            <!-- RYAN -->
+            <div class="card user-card col-md-2 col-md-offset-2">
+              <img src="../images/ryan.jpg" role="presentation" alt="Ryan Holmes" class="circle-image"/>
+              <hr class="horizontal-line"/>
+              <div> Ryan Holmes</div>
+            </div>
           </div>
+
           <br/>
-          <div class="button-pink">Begin Demo</div>
+          <!-- <div class="row"> -->
+            <!-- <div class="col-md-2 col-md-offset-5"> -->
+              <div id="startDemoBtn" class="button-pink">Begin Demo</div>
+            <!-- </div> -->
+          <!-- </div> -->
+
         </div>
       </div>
     </div> <!-- Landing Page -->
@@ -45,11 +83,38 @@
         <div class="create-user-container">
           <h1 class='page-title'> Create Users </h1>
 
-            <div class="card add-user-card">
-              <div class="add-text">
-                <span class="plus"> + </span> Add User
+          <div class="card-holder">
+            <div class = "row" id="userRow0">
+              <!-- Add User -->
+              <div class="card add-user-card col-md-2 col-md-offset-2" id="addUserBtn">
+                <div class="add-text">
+                  <span class="plus"> + </span> Add User
+                </div>
               </div>
+
+              <!-- Fill Out User -->
+              <!-- <div class="row hidden" id="fillUserCard">
+                <div class="card add-user-card col-md-2 col-md-offset-2">
+                  <img src="../images/user_icon_1.png" alt="User 1" class="circle-image">
+                  <form action="">
+                    <input type="text" placeholder="User 1" id="userNameField">
+                    <input type="text" placeholder="Location" id="userLocationField">
+                    <div class="button-pink" id="createUserBtn">Create</div>
+                  </form>
+                </div>
+              </div> -->
+
+              <!-- New User -->
+              <!-- <div class="row hidden">
+                <div class="card user-card col-md-2 col-md-offset-2">
+                  <img src="../images/user_icon_1.png" alt="Ryan Holmes" class="circle-image"/>
+                  <hr class="horizontal-line"/>
+                  <div > Ryan Holmes</div>
+                  <div > Location</div>
+                </div>
+              </div> -->
             </div>
+          </div>
 
           <div class="button-pink"> Continue </div>
         </div>
