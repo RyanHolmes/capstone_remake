@@ -55,7 +55,6 @@ body {
 .button-pink:focus {
   margin: 0 auto;
   margin-top: 20px;
-  /*margin-left: -50px;*/
   display: block;
   padding: 5px 5px 5px 5px;
   text-align: center;
@@ -76,4 +75,14 @@ body {
 
 .white {
   color: white;
+}
+
+.input-field {
+  border-radius: 5px;
+  margin: 2px;
+  border: 1px solid #979797;
+}
+
+.input-field:focus, .input-field:active{
+  border: 1px solid #3CC6F2;
 }

@@ -28,8 +28,8 @@ function addUserButton(){
   <div class="hidden card add-user-card col-md-2 col-md-offset-2" id="fillUserCard">
     <img src="../images/user_icon_${users.length + 1}.png" alt="User 1" class="circle-image">
     <form action="">
-      <input type="text" placeholder="User 1" id="userNameField">
-      <input type="text" placeholder="Location" id="userLocationField">
+      <input class="input-field" type="text" placeholder="User ${users.length + 1}" id="userNameField">
+      <input class="input-field" type="text" placeholder="Location" id="userLocationField">
       <div class="button-pink" id="createUserBtn">Create</div>
     </form>
   </div>
@@ -97,5 +97,16 @@ function createUserButton(){
 };
 
 function addEventButton(){
-  alert("hi");
+  var eventId = `#${this.id}`;
+  var row = eventId.split('').pop();
+  var eventCardForm = `
+  <div class="hidden card add-event-card col-md-3" id="eventForm${users.length}">
+    poop
+  </div>
+  `
+  $(eventId).remove();
+  $(`#userRow${row}`).append(eventCardForm);
+  $(`#eventForm${users.length}`).removeClass('hidden');
+  $(`#eventForm${users.length}`).addClass('animated fadeInDown');
+  //create new event form, animate in
 };
