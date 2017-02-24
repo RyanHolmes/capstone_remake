@@ -1,13 +1,12 @@
 /*============ GENERAL CREAT USER STUFF  ==============*/
 .create-user-container {
   margin-left: 200px;
-  width: 80%;
-  height: 100%;
+  /*width: 80%;
+  height: 100%;*/
 }
 
 .create-user-background {
-  margin-top: -20px;
-  height: 700px;
+  min-height: 700px;
   width: auto;
   background: #d9d9d9;
 }

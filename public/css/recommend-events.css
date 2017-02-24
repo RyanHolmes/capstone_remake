@@ -9,9 +9,7 @@
 }
 
 .recommend-events-background {
-  /*TODO - margins messed up*/
-  margin-top: -20px;
-  height: 700px;
+  min-height: 700px;
   width: auto;
   background: white;
 }
