@@ -1,7 +1,4 @@
 .recommend-events-container {
-  margin-left: 200px;
-  width: 80%;
-  height: 100%;
   display: inline-flex;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -9,16 +6,16 @@
 }
 
 .recommend-events-background {
-  min-height: 700px;
-  width: auto;
+  min-height: 705px;
   background: white;
 }
 
 .events-container {
-  display: inline;
-  margin-right: 200px;
-  width: auto;
+  /*TODO scrolling*/
+  display: inline-flex;
   height: 275px;
   overflow-x: scroll;
   white-space: nowrap;
 }
+
+/*TODO remove col-md-6 on events, min-width of 255px*/

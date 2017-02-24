@@ -1,10 +1,11 @@
 // user/event -> buttonCard, formCard, card
 $(document).ready(function(){
   var users;
+  var numEvents;
   $('#startDemoBtn').click(function(){
-    // $('html, body').animate({
-    //    scrollTop: $('#userButtonCard').offset().top
-    //  }, 1000);
+    $('html, body').animate({
+       scrollTop: $('#userButtonCard').offset().top
+     }, 1000);
   });
 
   $('#userButtonCard').on("click", userButtonCardFn);
@@ -20,7 +21,7 @@ $(document).ready(function(){
 
 //called to render the form
 function userButtonCardFn(){
-  if(typeof(users) === "undefined"){ users = []; }
+  if(typeof(users) === "undefined"){ users = []; numEvents = 0;}
 
   $('#userButtonCard').remove();
   var userForm = `
@@ -33,7 +34,7 @@ function userButtonCardFn(){
     </form>
   </div>
   `
-  $(`#userRow${users.length}`).append(userForm);
+  $(`#userRow${users.length}`).prepend(userForm);
   $('#userFormCard').removeClass('hidden');
   $('#userFormCard').addClass('animated fadeInDown');
   $('#createUserBtn').on("click", createUserButton);
@@ -57,15 +58,15 @@ function createUserButton(){
   var addEventCard = getEventButtonCard(users.length);
 
   $('#userFormCard').remove();
-  $(`#userRow${users.length}`).append(newUser);
-  $(`#userRow${users.length}`).append(addEventCard);
+  $(`#userRow${users.length}`).prepend(newUser);
+  $(`#eventContainer${users.length}`).append(addEventCard);
 
   $(`#newUser${users.length}`).removeClass('hidden');
   $(`#newUser${users.length}`).addClass('animated fadeInDown');
 
   $(`#eventButtonCard${users.length}`).addClass('animated fadeInDown');
   $(`#eventButtonCard${users.length}`).removeClass('hidden');
-  $(`#eventButtonCard${users.length}`).on("click", addEventButton);
+  $(`#eventButtonCard${users.length}`).on("click", eventButtonCardFn);
 
   // //store user that was created
   users.push({name: userName, location: userLocation});
@@ -73,8 +74,10 @@ function createUserButton(){
   //create row for new user
   var newUserRow = `
       <div class = "row" id="userRow${users.length}">
+        <div class="col-md-6 events-container" id="eventContainer${users.length}">
+        </div>
       </div>
-  `
+  `;
   $('.create-user-card-holder').append(newUserRow);
 
   var userButtonCard = `
@@ -85,7 +88,7 @@ function createUserButton(){
   </div>
   `
 
-  $(`#userRow${users.length}`).append(userButtonCard);
+  $(`#userRow${users.length}`).prepend(userButtonCard);
   $('#userButtonCard').removeClass('hidden');
   $('#userButtonCard').addClass('animated fadeInDown');
   $('#userButtonCard').on("click", userButtonCardFn);
@@ -93,19 +96,19 @@ function createUserButton(){
 
 // =======================================================================================================
 
-function addEventButton(){
+function eventButtonCardFn(){
   var eventId = `#${this.id}`;
   var row = eventId.split('').pop();
 
   var eventCardForm = `
-  <div class="hidden card add-event-card col-md-3" id="eventFormCard${row}">
+  <div class="hidden card add-event-card" id="eventFormCard${row}">
     <div> poop </div>
     <div class="button-pink" id="createEventBtn${row}">Create</div>
   </div>
   `
 
   $(eventId).remove();
-  $(`#userRow${row}`).append(eventCardForm);
+  $(`#eventContainer${row}`).append(eventCardForm);
   $(`#eventFormCard${row}`).removeClass('hidden');
   $(`#eventFormCard${row}`).addClass('animated fadeInDown');
 
@@ -117,7 +120,7 @@ function addEventButton(){
 function createUserContinueBtn(){
   //inject recommendation page
   var recPage = `
-  <div class="recommend-events-background">
+  <div class="recommend-events-background container">
     <h1 class='page-title'> Recommend Events </h1>
 
     <div class="row">
@@ -128,54 +131,62 @@ function createUserContinueBtn(){
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <ul class="nav nav-tabs">
-          <li role="presentation" class="active"><a href="#">User 1</a></li>
-          <li role="presentation"><a href="#">User 2</a></li>
-          <li role="presentation"><a href="#">User 3</a></li>
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#u1" data-toggle="tab">User 1</a></li>
+          <li><a href="#u2" data-toggle="tab">User 2</a></li>
+          <li><a href="#u3" data-toggle="tab">User 3</a></li>
         </ul>
+        <div class="tab-content" style="margin: 10px;">
+          <div class="tab-pane active fade in" id="u1">
+            user 1
+          </div>
+          <div class="tab-pane fade" id="u2">
+            user 2
+          </div>
+          <div class="tab-pane fade" id=u3>
+            user 3
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="recommend-events-container">
-      <!-- <UserCard location="London, ON"></UserCard> -->
-      <div class="events-container">
-        <!-- <EventCard eventLocation="London, ON" eventTitle="Some Event" eventDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." eventCategory="Business"></EventCard> -->
-    </div>
-
     </div>
   </div>
   `
   $('body').append(recPage);
+  $('html, body').animate({
+     scrollTop: $('.recommend-events-background').offset().top
+   }, 1000);
 };
 
 // =======================================================================================================
 
 function createEventButton(){
   var buttonId = `#${this.id}`;
-  console.log(buttonId);
   var row = buttonId.split('').pop();
   var eventCard = `
-  <div class="hidden card add-event-card col-md-3" id="eventCard${row}">
+  <div class="hidden card add-event-card" id="eventCard${numEvents}${row}">
     Some new Event
   </div>
   `
 
   $(`#eventFormCard${row}`).remove();
-  $(`#userRow${row}`).append(eventCard);
-  $(`#eventCard${row}`).removeClass('hidden');
-  $(`#eventCard${row}`).addClass('animated fadeInDown');
+  $(`#eventContainer${row}`).append(eventCard);
+  $(`#eventCard${numEvents}${row}`).removeClass('hidden');
+  $(`#eventCard${numEvents}${row}`).addClass('animated fadeInDown');
 
   var addEventCard = getEventButtonCard(row);
-  $(`#userRow${row}`).append(addEventCard);
+  $(`#eventContainer${row}`).append(addEventCard);
   $(`#eventButtonCard${row}`).removeClass('hidden');
   $(`#eventButtonCard${row}`).addClass('animated fadeInDown');
 
-  $(`#eventButtonCard${row}`).on("click", addEventButton);
+  $(`#eventButtonCard${row}`).on("click", eventButtonCardFn);
+  numEvents++;
 };
+
+// =======================================================================================================
 
 function getEventButtonCard(row){
   var addEventCard = `
-  <div class="hidden card add-event-card col-md-3" id="eventButtonCard${row}">
+  <div class="hidden card add-event-card" id="eventButtonCard${row}">
     <div class="add-text">
       <span class="plus"> + </span> Add Event
     </div>

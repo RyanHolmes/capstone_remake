@@ -1,13 +1,12 @@
 /*============ GENERAL CREAT USER STUFF  ==============*/
-.create-user-container {
-  margin-left: 200px;
-  /*width: 80%;
-  height: 100%;*/
+.create-user-card-holder {
+  margin-left: 16.67%;
 }
 
 .create-user-background {
-  min-height: 700px;
-  width: auto;
+  margin-top: -20px;
+  min-height: 705px;
+  /*width: auto;*/
   background: #d9d9d9;
 }
 
@@ -22,6 +21,7 @@
 
 .add-event-card {
   height: 255px;
+  min-width: 255px;
 }
 
 .add-event-card :hover{
@@ -43,6 +43,7 @@
 /*========== EVENT CARD  ==============*/
 .event-card {
   height: 255px;
+  min-width: 255px;
 }
 
 .event-title {
